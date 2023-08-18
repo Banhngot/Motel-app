@@ -28,9 +28,9 @@ public class SecurityApplication {
 	@Bean
 	CommandLineRunner run(AccountService accountService){
 		return args -> {
-			accountService.saveRole(new Role(3,"ROLE_HOUSE_OWNER"));
-			accountService.saveRole(new Role(2,"ROLE_RENTER"));
 			accountService.saveRole(new Role(1,"ROLE_ADMIN"));
+			accountService.saveRole(new Role(2,"ROLE_RENTER"));
+			accountService.saveRole(new Role(3,"ROLE_HOUSE_OWNER"));
 
 			accountService.saveAccount(new Account(1,"admin","123",new HashSet<>()));
 			accountService.saveAccount(new Account(2,"test1","123",new HashSet<>()));

@@ -26,7 +26,7 @@ public class jwtService {
     public String generateRefreshToken(Account account, Collection<SimpleGrantedAuthority> authorities){
         Algorithm algorithm = Algorithm.HMAC256(Secret_ket.getBytes());
         return JWT.create()
-                .withSubject(account.getPassword())
+                .withSubject(account.getUsername())
                 .withExpiresAt(new Date(System.currentTimeMillis() + 50*60*1000))
                 .sign(algorithm);
     }

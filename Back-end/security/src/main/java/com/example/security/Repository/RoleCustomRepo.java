@@ -20,7 +20,7 @@ public class RoleCustomRepo {
         StringBuilder sql = new StringBuilder()
                 .append("select r.name as name from account a join account_role ar on a.id = ar.account_id\n" +
                         "join role r on r.id = ar.roles_id");
-        sql.append("where 1=1 ");
+        sql.append("Where 1=1 ");
         if(account.getUsername()!=null){
             sql.append("and username = :username");
         }
