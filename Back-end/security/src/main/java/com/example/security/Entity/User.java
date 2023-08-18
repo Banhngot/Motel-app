@@ -11,7 +11,6 @@ import java.util.*;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @Data
 @NoArgsConstructor
 @Table(name = "Users")
@@ -28,6 +27,15 @@ public class User implements UserDetails {
     joinColumns = @JoinColumn(name = "Users_Id"),
     inverseJoinColumns = @JoinColumn(name = "Roles_ID"))
     private Set<Role> roles = new HashSet<>();
+
+    public User(Long id, String full_name, String user_name, String email, String password, Set<Role> roles) {
+        this.id = id;
+        this.full_name = full_name;
+        this.user_name = user_name;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
