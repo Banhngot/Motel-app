@@ -23,8 +23,7 @@ public class AuthenticationService {
         Account account = accountRepo.findByUsername(authenticationRequest.getUsername()).orElseThrow();
         List<Role> role = null;
         if(account!=null){
-//            role
+            role
         }
-        return null;
     }
 }
