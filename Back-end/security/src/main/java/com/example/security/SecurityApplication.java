@@ -26,21 +26,21 @@ public class SecurityApplication {
 		return new BCryptPasswordEncoder();
 	}
 
-	@Bean
-	CommandLineRunner run(UserService userService){
-		return args -> {
-			userService.savaRole(new Role(null,"ROLE_ADMIN"));
-			userService.savaRole(new Role(null,"ROLE_HOUSE_OWNER"));
-			userService.savaRole(new Role(null,"ROLE_RENTER"));
-
-			userService.saveUser(new User(null,"Hoang","Hoang123","hoang1@gmail.com","123456",new HashSet<>()));
-			userService.saveUser(new User(null,"test1","test123","test1@gmail.com","123456",new HashSet<>()));
-			userService.saveUser(new User(null,"test2","test1234","test2@gmail.com","123456",new HashSet<>()));
-
-			userService.addToUser("hoang1@gmail.com","ROLE_ADMIN");
-			userService.addToUser("test1@gmail.com","ROLE_HOUSE_OWNER");
-			userService.addToUser("test2@gmail.com","ROLE_RENTER");
-		};
-	}
+//	@Bean
+//	CommandLineRunner run(UserService userService){
+//		return args -> {
+//			userService.savaRole(new Role(null,"ROLE_ADMIN"));
+//			userService.savaRole(new Role(null,"ROLE_HOUSE_OWNER"));
+//			userService.savaRole(new Role(null,"ROLE_RENTER"));
+//
+//			userService.saveUser(new User(null,"Hoang","Hoang123","hoang1@gmail.com","123456",new HashSet<>()));
+//			userService.saveUser(new User(null,"test1","test123","test1@gmail.com","123456",new HashSet<>()));
+//			userService.saveUser(new User(null,"test2","test1234","test2@gmail.com","123456",new HashSet<>()));
+//
+//			userService.addToUser("hoang1@gmail.com","ROLE_ADMIN");
+//			userService.addToUser("test1@gmail.com","ROLE_HOUSE_OWNER");
+//			userService.addToUser("test2@gmail.com","ROLE_RENTER");
+//		};
+//	}
 
 }
