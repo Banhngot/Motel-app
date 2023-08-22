@@ -33,7 +33,7 @@ public class SecurityConfig {
                 .anyRequest().
                 authenticated()
                 .and()
-//                .authenticationProvider(authenticationProvider)
+                .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
