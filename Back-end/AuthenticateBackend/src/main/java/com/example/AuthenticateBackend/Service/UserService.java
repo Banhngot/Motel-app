@@ -2,6 +2,7 @@ package com.example.AuthenticateBackend.Service;
 
 import com.example.AuthenticateBackend.Modles.ApplicationUser;
 import com.example.AuthenticateBackend.Modles.Role;
+import com.example.AuthenticateBackend.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,12 +16,11 @@ import java.util.Set;
 public class UserService implements UserDetailsService {
     @Autowired
     private PasswordEncoder encoder;
+    @Autowired
+    private UserRepository userRepository;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         System.out.println("In the user details service");
-        if(!username.equals("Hoang")) throw new UsernameNotFoundException("Not Hoang");
-        Set<Role> roles = new HashSet<>();
-        roles.add(new Role(1,"user"));
-        return new ApplicationUser(1,"Hoang",encoder.encode("password"),roles);
+        return userRepository.findByUsername(username).orElseThrow(()->new UsernameNotFoundException("user is not valid"));
     }
 }
