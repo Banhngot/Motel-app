@@ -20,7 +20,7 @@ public class UserService implements UserDetailsService {
         System.out.println("In the user details service");
         if(!username.equals("Hoang")) throw new UsernameNotFoundException("Not Hoang");
         Set<Role> roles = new HashSet<>();
-        roles.add(new Role(1,"Admin"));
+        roles.add(new Role(1,"user"));
         return new ApplicationUser(1,"Hoang",encoder.encode("password"),roles);
     }
 }
