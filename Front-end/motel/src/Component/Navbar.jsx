@@ -43,6 +43,9 @@ const Navbar = () => {
             <button>Sign in</button>
             <BiUser className="text-[22px]" />
           </div>
+          <div className="flex items-center  border px-4 py-2 mx-5 rounded-full gap-3 bg-[#FFFD8C] text-black font-bold shadow-lg shadow-gray-300 hover:bg-[#c4c37b] duration-100 ease-out">
+            <button>Post</button>
+          </div>
         </div>
       </div>
     </div>
